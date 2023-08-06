@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { formatDuration } from "./Player";
 
-export default function Seackbar({ value, setValue, video, setCurrentTime }) {
+export default function Seackbar({ value, setValue, video, setCurrentTime, hide }) {
   const [isScrubbing, setIsScrubbing] = useState(false);
 
   const containerRef = useRef(null);
@@ -15,10 +15,12 @@ export default function Seackbar({ value, setValue, video, setCurrentTime }) {
     }
 
     document.addEventListener('mouseup', toggleDocuScrub);
+    document.addEventListener('mousedown', toggleDocuScrub);
     document.addEventListener('mousemove', handleDocMove);
     
     return () => {
       document.removeEventListener('mouseup', toggleDocuScrub);
+      document.removeEventListener('mousedown', toggleDocuScrub);
       document.removeEventListener('mousemove', handleDocMove);
     }
 
@@ -75,7 +77,7 @@ export default function Seackbar({ value, setValue, video, setCurrentTime }) {
 
   return (
     <div
-      className="seackbar-container"
+      className={`seackbar-container ${hide ? "hide" : ""}`}
       onMouseDown={toggleScrubbing}
       onMouseMove={handleMouseMove}
       ref={containerRef}

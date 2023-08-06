@@ -5,7 +5,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .player-button {
@@ -17,13 +18,13 @@ body {
   align-items: center;
   justify-content: center;
   transition-property: background-color;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   border-radius: 9999px;
 }
 
 .player-button:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .player-button > * {
@@ -90,7 +91,6 @@ body {
   padding: 0 12px 2px;
   z-index: 1;
   position: relative;
-
 }
 
 .player-container .player-inner .player .player-controls .buttons-container {
@@ -99,7 +99,12 @@ body {
   align-items: center;
 }
 
-.player-container .player-inner .player .player-controls .buttons-container .left {
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .left {
   min-height: 40px;
   flex-shrink: 1;
   flex-grow: 1;
@@ -107,7 +112,12 @@ body {
   align-items: center;
 }
 
-.player-container .player-inner .player .player-controls .buttons-container .right {
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right {
   min-height: 40px;
   flex-shrink: 0;
   display: flex;
@@ -115,11 +125,77 @@ body {
   justify-content: flex-start;
 }
 
-.player-container .player-inner .player .player-controls .buttons-container .right .duration {
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right
+  .duration {
   margin: 0 4px;
   font-size: 15px;
   font-weight: 400;
   color: #fff;
+}
+
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right
+  .sound-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right
+  .sound-container
+  .slider-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  right: 4px;
+  margin-bottom: 36px;
+  padding: 16px 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 16px;
+  opacity: 0;
+}
+
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right
+  .sound-container
+  .slider-wrapper.show {
+  opacity: 1;
+}
+
+.player-container
+  .player-inner
+  .player
+  .player-controls
+  .buttons-container
+  .right
+  .sound-container
+  .slider-wrapper
+  .self-center {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .seackbar-container {
@@ -131,13 +207,17 @@ body {
   cursor: pointer;
 }
 
+.seackbar-container.hide {
+  opacity: 0;
+}
+
 .seackbar-container .seackbar-area {
   height: 4px;
   align-items: center;
   flex-grow: 1;
   display: flex;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, .33);
+  background-color: rgba(255, 255, 255, 0.33);
 }
 
 .seackbar-container .progress {
@@ -184,7 +264,7 @@ body {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  background-color: skyblue;
+  background-color: rgba(255, 255, 255, 0.33);
   border-radius: 8px;
   width: 4px;
   position: relative;
@@ -192,8 +272,8 @@ body {
 }
 
 .vertical-slider-container .vertical-slider-area .progress {
-  flex-grow: .5;
-  background-color: rgb(27, 170, 253);
+  flex-grow: 0.5;
+  background-color: #fff;
   border-radius: 8px;
   align-self: stretch;
 }
@@ -214,5 +294,5 @@ body {
   height: 16px;
   width: 16px;
   border-radius: 9999px;
-  background-color: rgb(27, 170, 253);
+  background-color: #fff;
 }

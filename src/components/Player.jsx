@@ -29,8 +29,7 @@ export default function Player() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const [volume, setVolme] = useState(1);
-
-  console.log(videoRef);
+  const [hide, setHide] = useState(false);
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -68,6 +67,19 @@ export default function Player() {
       document.removeEventListener("fullscreenchange", fullscreenChange);
     };
   }, [videoRef]);
+
+  function onVolumeChange() {
+    setVolme(videoRef.current.volume);
+    if (videoRef.current.muted) {
+      setVolme(0);
+    }
+  }
+
+
+  function toggleMute() {
+    const video = videoRef.current;
+    video.muted = !video.muted;
+  }
 
   function toggleFullscreen() {
     if (document.fullscreenElement == null) {
@@ -113,6 +125,7 @@ export default function Player() {
             onDoubleClick={toggleFullscreen}
             onTimeUpdate={handleTimeUpdate}
             onLoadedData={handleLoadedData}
+            onVolumeChange={onVolumeChange}
             ref={videoRef}
           ></video>
           <section className="player-controls">
@@ -123,6 +136,7 @@ export default function Player() {
                 setValue={setVideoProgress}
                 video={videoRef.current}
                 setCurrentTime={setCurrentTime}
+                hide={hide}
               />
               <Controls
                 currentTime={currentTime}
@@ -131,6 +145,12 @@ export default function Player() {
                 toggleFullscreen={toggleFullscreen}
                 paused={paused}
                 fullscreen={isFullscreen}
+                video={videoRef.current}
+                volume={volume}
+                setVolume={setVolme}
+                hide={hide}
+                setHide={setHide}
+                toggleMute={toggleMute}
               />
             </div>
           </section>

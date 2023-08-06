@@ -13,10 +13,12 @@ export default function VerticalSlidar({ value, setValue, video }) {
       if (isScrubbing) handleMouseMove(e);
     }
 
+    document.addEventListener("mousedown", toggleDocScrub);
     document.addEventListener("mouseup", toggleDocScrub);
     document.addEventListener("mousemove", handleDocMove);
 
     return () => {
+      document.removeEventListener("mousedown", toggleDocScrub);
       document.removeEventListener("mouseup", toggleDocScrub);
       document.removeEventListener("mousemove", handleDocMove);
     };
@@ -46,6 +48,8 @@ export default function VerticalSlidar({ value, setValue, video }) {
       1 - Math.min(Math.max(0, y - rect.y), rect.height) / rect.height;
     if (isScrubbing) {
       e.preventDefault();
+      video.volume = progress;
+      video.muted = progress === 0;
       setValue(progress);
     }
   };
