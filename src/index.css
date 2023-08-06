@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.player-button {
+  height: 36px;
+  width: 36px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background-color;
+  transition-duration: .2s;
+  border-radius: 9999px;
+}
+
+.player-button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.player-button > * {
+  display: block;
+  height: 20px;
+  width: 20px;
+  fill: #fff;
+}
+
+.player-container {
+  max-height: calc(100vh - 160px);
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.player-container .aspect-spacer {
+  padding-bottom: 56.25%;
+}
+
+.player-container .player-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #000;
+}
+
+.player-container .player-inner .player {
+  max-height: calc(100vh - 160px);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.player-container .player-inner .player video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.player-container .player-inner .player .player-controls {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-container .player-inner .player .player-controls .shade {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.77));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.player-container .player-inner .player .player-controls .space-x {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 12px 2px;
+  z-index: 1;
+  position: relative;
+
+}
+
+.player-container .player-inner .player .player-controls .buttons-container {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.player-container .player-inner .player .player-controls .buttons-container .left {
+  min-height: 40px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.player-container .player-inner .player .player-controls .buttons-container .right {
+  min-height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.player-container .player-inner .player .player-controls .buttons-container .right .duration {
+  margin: 0 4px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.seackbar-container {
+  position: relative;
+  height: 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seackbar-container .seackbar-area {
+  height: 4px;
+  align-items: center;
+  flex-grow: 1;
+  display: flex;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, .33);
+}
+
+.seackbar-container .progress {
+  align-self: stretch;
+  flex-grow: 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.seackbar-container .thumb-container {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: calc(0% - 0px);
+  margin-left: -8px;
+}
+
+.seackbar-container .thumb-container .thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background-color: #fff;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
