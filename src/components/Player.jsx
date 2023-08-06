@@ -28,6 +28,9 @@ export default function Player() {
   const [paused, setPaused] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
+  const [volume, setVolme] = useState(1);
+
+  console.log(videoRef);
 
   useEffect(() => {
     function handleKeyDown(e) {

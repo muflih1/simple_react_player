@@ -1,4 +1,5 @@
 import React from "react";
+import VerticalSlidar from "./VerticalSlidar";
 
 export default function Controls({
   currentTime,
@@ -41,6 +42,7 @@ export default function Controls({
               </g>
             </svg>
           </button>
+          <VerticalSlidar  />
         </div>
         <button className="player-button" onClick={toggleFullscreen}>
           {fullscreen ? (

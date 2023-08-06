@@ -170,3 +170,49 @@ body {
   width: 1280px;
   margin: 0 auto;
 }
+
+.vertical-slider-container {
+  height: 128px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vertical-slider-container .vertical-slider-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background-color: skyblue;
+  border-radius: 8px;
+  width: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.vertical-slider-container .vertical-slider-area .progress {
+  flex-grow: .5;
+  background-color: rgb(27, 170, 253);
+  border-radius: 8px;
+  align-self: stretch;
+}
+
+.vertical-slider-container .vertical-slider-area .thumb-container {
+  height: 32px;
+  width: 32px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -8px;
+  bottom: calc(0% - 0px);
+  position: absolute;
+}
+
+.vertical-slider-container .vertical-slider-area .thumb-container .thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background-color: rgb(27, 170, 253);
+}
