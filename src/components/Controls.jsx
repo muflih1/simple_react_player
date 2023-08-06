@@ -45,6 +45,7 @@ export default function Controls({
             className="player-button"
             onClick={toggleMute}
             onMouseOver={() => setHide(true)}
+            onMouseMove={() => setHide(true)}
           >
             {volume === 0 ? (
               <svg viewBox="0 0 24 24">
@@ -67,6 +68,7 @@ export default function Controls({
                 setValue={setVolume}
                 video={video}
                 show={hide}
+                setHide={setHide}
               />
             </div>
           </div>

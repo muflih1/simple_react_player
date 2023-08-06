@@ -162,8 +162,10 @@ body {
   bottom: 0;
   left: 4px;
   right: 4px;
+  height: 1px;
+  width: 1px;
   margin-bottom: 36px;
-  padding: 16px 12px;
+  padding: 16px 0;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -181,6 +183,8 @@ body {
   .sound-container
   .slider-wrapper.show {
   opacity: 1;
+  height: 128px;
+  padding: 16px 12px;
 }
 
 .player-container
@@ -252,11 +256,11 @@ body {
 }
 
 .vertical-slider-container {
-  height: 128px;
   width: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 
 .vertical-slider-container .vertical-slider-area {
@@ -290,9 +294,24 @@ body {
   position: absolute;
 }
 
+.vertical-slider-container .vertical-slider-area .thumb-container.hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.vertical-slider-container .vertical-slider-area .thumb-container.active {
+  background-color: rgba(255, 255, 255, .2);
+}
+
 .vertical-slider-container .vertical-slider-area .thumb-container .thumb {
   height: 16px;
   width: 16px;
   border-radius: 9999px;
   background-color: #fff;
+  box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 7px, rgba(101, 119, 134, 0.15) 0px 1px 3px 1px;
+  transition-duration: .1s;
+  transition-property: transform;
+}
+
+.vertical-slider-container .vertical-slider-area .thumb-container .thumb.zoom {
+  transform: scale(1.2);
 }
